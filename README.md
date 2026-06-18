@@ -1,27 +1,53 @@
 # Library Management System
 
-A console-based Library Management System built in C++ as part of a long-term software engineering portfolio. The project focuses on clean object-oriented design, class responsibility, vector-based data management, and safe handling of book borrowing and returning logic.
+A console-based Library Management System built in C++ as part of a long-term software engineering portfolio project.
 
-This is an early version of the project and will continue to grow with more features, better structure, file handling, user/member management, and eventually a cleaner multi-file architecture.
+The project focuses on object-oriented programming, clean class responsibility, vector-based data management, input handling, and interactive console-based user flows. This is an early version of the system and will continue to grow with better structure, file handling, member management, and persistent storage.
 
-## Current Features
+## Current Version
 
-* Add books to the library
+**Version:** v0.1
+**Status:** Early development
+
+This version includes the core book-management system and an interactive console menu.
+
+## Features
+
+* Add books through user input
 * Prevent duplicate book IDs
 * Display all books
-* Display available books
-* Display borrowed books
+* Display only available books
+* Display only borrowed books
 * Borrow a book by ID
 * Return a book by ID
+* Find and display a book by ID
 * Handle invalid book IDs
-* Search for a book by ID
-* Track book availability status
+* Basic numeric input validation
+* Interactive menu loop
+* Private book search logic inside the `Library` class
 
-## Current Project Structure
+## Menu Options
 
-The current version is kept in a single C++ file while the core logic is being developed.
+The current program supports the following menu:
 
-Main classes:
+```text
+Library Management System
+
+1. Add book
+2. Display all books
+3. Display available books
+4. Display borrowed books
+5. Borrow book by ID
+6. Return book by ID
+7. Find book by ID
+8. Exit
+```
+
+## Project Structure
+
+The current version is kept in a single `main.cpp` file while the core logic is being developed.
+
+Main components:
 
 ### Book
 
@@ -31,6 +57,7 @@ Responsibilities:
 
 * Store book ID, title, author, and borrowed status
 * Display book details
+* Track whether a book is available or borrowed
 * Handle borrowing and returning state
 * Protect internal data using private members and public methods
 
@@ -42,10 +69,21 @@ Responsibilities:
 
 * Store books using `std::vector<Book>`
 * Add new books
-* Prevent duplicate IDs
-* Search books by ID
-* Borrow and return books
-* Display books based on status
+* Prevent duplicate book IDs
+* Search for books internally
+* Borrow and return books by ID
+* Display books by status
+* Expose safe public methods for menu actions
+
+### Menu Functions
+
+The program includes helper functions for console interaction, including:
+
+* Displaying the menu
+* Adding a book through user input
+* Borrowing a book through user input
+* Returning a book through user input
+* Finding and displaying a book by ID
 
 ## Concepts Practiced
 
@@ -58,46 +96,48 @@ This project is being built to strengthen core C++ and software design concepts,
 * `std::vector`
 * Passing by reference and const reference
 * Pointers and `nullptr`
+* Private helper methods
 * Searching objects inside a vector
-* Separating responsibilities between classes
-* Keeping `main()` clean and readable
+* Separating class responsibility
+* Interactive console menus
+* Basic input validation
+* Keeping `main()` cleaner and more readable
 
-## Example Program Flow
+## Current Program Flow
 
-The current version tests the system by:
+The current version allows the user to:
 
-1. Creating a library
-2. Adding multiple books
-3. Rejecting duplicate book IDs
-4. Displaying all books
-5. Borrowing a book by ID
-6. Preventing the same book from being borrowed twice
-7. Displaying borrowed books
-8. Returning a book
-9. Preventing the same book from being returned twice
-10. Displaying available books
-11. Handling invalid book IDs
+1. Start the program
+2. Choose an action from the menu
+3. Add books by entering an ID, title, and author
+4. Display books by availability status
+5. Borrow and return books by ID
+6. Search for a specific book by ID
+7. Handle invalid book IDs
+8. Exit the program cleanly
 
 ## Planned Improvements
 
 Future versions will include:
 
-* Interactive console menu
-* Better input validation
+* Cleaner reusable input validation helpers
 * Automatic book ID generation
+* Better handling for empty book lists
 * Member/user management
 * Borrowing records linked to members
+* Due dates and return tracking
 * File saving and loading
 * Split code into `.h` and `.cpp` files
-* Improved error handling
-* Cleaner project structure
-* README updates with screenshots and usage instructions
+* Improved project structure
+* Better error handling
+* Unit tests
+* Updated README with screenshots and usage examples
 
 ## Why This Project Exists
 
-This project is part of my journey toward becoming a stronger C++ developer with a focus on clean software design and practical systems thinking. Instead of only learning C++ concepts in isolation, I am building this project incrementally and improving it through refactoring, code review, and feature expansion.
+This project is part of my journey toward becoming a stronger C++ developer and building a serious software engineering portfolio.
 
-The goal is to grow this into a portfolio-ready C++ project that demonstrates object-oriented programming, data management, and clean project architecture.
+Instead of only learning C++ concepts in isolation, I am building this project incrementally through real implementation, refactoring, and code review. The goal is to grow this into a clean portfolio-ready C++ project that demonstrates object-oriented programming, data management, console interaction, and maintainable software structure.
 
 ## Technologies Used
 
@@ -110,22 +150,22 @@ The goal is to grow this into a portfolio-ready C++ project that demonstrates ob
 
 Compile the project using a C++ compiler such as `g++`.
 
-Example:
+### Linux / macOS
 
 ```bash
 g++ main.cpp -o library-management-system
 ./library-management-system
 ```
 
-On Windows, you can compile with:
+### Windows
 
 ```bash
 g++ main.cpp -o library-management-system.exe
 library-management-system.exe
 ```
 
-## Status
+## Repository Status
 
-Current version: Early development / v0
+This project is currently in active development.
 
-The current build contains the core book-management logic. More features and structural improvements will be added as the project develops.
+The current release, **v0.1**, includes the first interactive version of the Library Management System. Future versions will continue improving the project structure and adding more realistic library-management features.
