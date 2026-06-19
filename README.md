@@ -2,14 +2,16 @@
 
 A console-based Library Management System built in C++ as part of a long-term software engineering portfolio project.
 
-The project focuses on object-oriented programming, clean class responsibility, vector-based data management, input handling, and interactive console-based user flows. This is an early version of the system and will continue to grow with better structure, file handling, member management, and persistent storage.
+The project focuses on object-oriented programming, class responsibility, multi-file project structure, vector-based data management, input handling, and interactive console-based user flows.
+
+This project is an early C++ foundation project and is being built incrementally through implementation, refactoring, and code review.
 
 ## Current Version
 
-**Version:** v0.1
-**Status:** Early development
+**Version:** v0.2
+**Status:** Foundation project complete
 
-This version includes the core book-management system and an interactive console menu.
+This version includes the core book-management system, an interactive console menu, basic input handling, and a multi-file C++ structure.
 
 ## Features
 
@@ -25,6 +27,7 @@ This version includes the core book-management system and an interactive console
 * Basic numeric input validation
 * Interactive menu loop
 * Private book search logic inside the `Library` class
+* Multi-file project structure using `.h` and `.cpp` files
 
 ## Menu Options
 
@@ -45,9 +48,18 @@ Library Management System
 
 ## Project Structure
 
-The current version is kept in a single `main.cpp` file while the core logic is being developed.
+```text
+library-management-system/
+├── Book.h
+├── Book.cpp
+├── Library.h
+├── Library.cpp
+├── main.cpp
+├── README.md
+└── .gitignore
+```
 
-Main components:
+## Main Components
 
 ### Book
 
@@ -75,24 +87,27 @@ Responsibilities:
 * Display books by status
 * Expose safe public methods for menu actions
 
-### Menu Functions
+### main.cpp
 
-The program includes helper functions for console interaction, including:
+Handles the console interface.
 
-* Displaying the menu
-* Adding a book through user input
-* Borrowing a book through user input
-* Returning a book through user input
-* Finding and displaying a book by ID
+Responsibilities:
+
+* Display the menu
+* Accept user input
+* Call public `Library` methods
+* Keep the application running until the user exits
 
 ## Concepts Practiced
 
-This project is being built to strengthen core C++ and software design concepts, including:
+This project was built to strengthen core C++ and software design concepts, including:
 
 * Classes and objects
 * Encapsulation
 * Constructors and member initializer lists
 * Const member functions
+* Header files and implementation files
+* Multi-file C++ project structure
 * `std::vector`
 * Passing by reference and const reference
 * Pointers and `nullptr`
@@ -116,28 +131,59 @@ The current version allows the user to:
 7. Handle invalid book IDs
 8. Exit the program cleanly
 
+## How to Run
+
+Compile the project using a C++ compiler such as `g++`.
+
+### Linux / macOS
+
+```bash
+g++ main.cpp Book.cpp Library.cpp -o library-management-system
+./library-management-system
+```
+
+### Windows
+
+```bash
+g++ main.cpp Book.cpp Library.cpp -o library-management-system.exe
+library-management-system.exe
+```
+
+## Example Usage
+
+After running the program, the user can add books, borrow books, return books, search for books, and display books based on availability.
+
+Example actions:
+
+```text
+1. Add book
+5. Borrow book by ID
+6. Return book by ID
+7. Find book by ID
+```
+
+The system prevents duplicate book IDs and displays clean messages when a book does not exist or has already been borrowed/returned.
+
 ## Planned Improvements
 
-Future versions will include:
+This project is currently frozen as a C++ foundation project. Future improvements may include:
 
 * Cleaner reusable input validation helpers
 * Automatic book ID generation
 * Better handling for empty book lists
-* Member/user management
-* Borrowing records linked to members
-* Due dates and return tracking
 * File saving and loading
-* Split code into `.h` and `.cpp` files
-* Improved project structure
-* Better error handling
 * Unit tests
-* Updated README with screenshots and usage examples
+* CMake support
+* Cleaner console UI
+* More advanced library features such as members and borrowing records
 
 ## Why This Project Exists
 
 This project is part of my journey toward becoming a stronger C++ developer and building a serious software engineering portfolio.
 
-Instead of only learning C++ concepts in isolation, I am building this project incrementally through real implementation, refactoring, and code review. The goal is to grow this into a clean portfolio-ready C++ project that demonstrates object-oriented programming, data management, console interaction, and maintainable software structure.
+Instead of only learning C++ concepts in isolation, I built this project incrementally through real implementation, refactoring, and review. The goal was to practice object-oriented programming, data management, console interaction, multi-file structure, and maintainable C++ design.
+
+This project now serves as my C++ foundation project before moving into more automotive-focused C++ portfolio projects.
 
 ## Technologies Used
 
@@ -146,26 +192,8 @@ Instead of only learning C++ concepts in isolation, I am building this project i
 * `std::vector`
 * Console input/output
 
-## How to Run
-
-Compile the project using a C++ compiler such as `g++`.
-
-### Linux / macOS
-
-```bash
-g++ main.cpp -o library-management-system
-./library-management-system
-```
-
-### Windows
-
-```bash
-g++ main.cpp -o library-management-system.exe
-library-management-system.exe
-```
-
 ## Repository Status
 
-This project is currently in active development.
+This project is currently at **v0.2**.
 
-The current release, **v0.1**, includes the first interactive version of the Library Management System. Future versions will continue improving the project structure and adding more realistic library-management features.
+The current release includes the first multi-file interactive version of the Library Management System. The project is stable enough to serve as a foundation portfolio project and may receive small improvements later.
